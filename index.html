@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Naturaleza | Ropa Informal para jóvenes y niños. Descubrí indumentaria cómoda, moderna y auténtica."
+    />
+    <title>Naturaleza | Ropa Informal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              charcoal: '#0F0F11',
+              panel: '#1E1E22',
+              soft: '#A8A29E',
+              sand: '#E2C792',
+              gold: '#D4AF37',
+              bone: '#F5F1E8',
+              deep: '#121212',
+            },
+            boxShadow: {
+              glow: '0 0 20px rgba(212, 175, 55, 0.25)',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #0f0f11;
+        color: #f5f1e8;
+      }
+
+      .glass {
+        background: rgba(30, 30, 34, 0.78);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .gold-line {
+        position: relative;
+      }
+
+      .gold-line::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 72px;
+        height: 2px;
+        background: linear-gradient(90deg, #d4af37, #e2c792);
+      }
+
+      .card-hover {
+        transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-6px);
+        border-color: rgba(226, 199, 146, 0.7);
+        box-shadow: 0 0 24px rgba(212, 175, 55, 0.12);
+      }
+
+      .product-image {
+        height: 280px;
+        object-fit: cover;
+      }
+
+      .cart-item-enter {
+        animation: fadeSlide 0.25s ease;
+      }
+
+      @keyframes fadeSlide {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .scrollbar-thin::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .scrollbar-thin::-webkit-scrollbar-thumb {
+        background: rgba(212, 175, 55, 0.5);
+        border-radius: 999px;
+      }
+    </style>
+  </head>
+  <body class="bg-charcoal text-bone selection:bg-sand/30 selection:text-bone">
+    <div class="bg-[#17171A] border-b border-white/10">
+      <div class="mx-auto max-w-7xl px-4 py-3 text-center text-[11px] sm:text-xs font-medium tracking-[0.12em] text-bone/90 uppercase">
+        🔥 Vístete con tu propia esencia. Indumentaria informal de tendencia para jóvenes y niños. Envíos y retiros en el local.
+      </div>
+    </div>
+
+    <header class="sticky top-0 z-40 border-b border-white/10 bg-charcoal/85 backdrop-blur-md">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full border border-sand/50 bg-panel text-lg font-semibold text-sand shadow-glow">
+            N
+          </div>
+          <div>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-sand/80">Naturaleza</p>
+            <h1 class="text-base font-semibold tracking-wide text-bone sm:text-lg">Ropa Informal</h1>
+          </div>
+        </div>
+
+        <nav class="hidden items-center gap-6 text-sm text-bone/75 md:flex">
+          <a href="#catalog" class="transition hover:text-sand">Catálogo</a>
+          <a href="#about" class="transition hover:text-sand">Nosotros</a>
+          <a href="#reviews" class="transition hover:text-sand">Reseñas</a>
+          <a href="#contact" class="transition hover:text-sand">Ubicación</a>
+        </nav>
+
+        <button
+          id="cartButton"
+          class="relative inline-flex items-center gap-3 rounded-full border border-sand/40 bg-panel px-4 py-2.5 text-sm font-medium text-bone transition hover:border-sand hover:bg-[#212125]"
+          aria-label="Abrir carrito"
+        >
+          <span class="text-lg">🛒</span>
+          <span>Carrito</span>
+          <span id="cartCount" class="flex h-6 min-w-6 items-center justify-center rounded-full bg-sand px-1.5 text-[11px] font-bold text-[#121212]">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.14),transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(255,255,255,0.05),transparent_28%)]"></div>
+        <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-20">
+          <div>
+            <span class="inline-flex items-center rounded-full border border-sand/35 bg-sand/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-sand">
+              Estilo diario, actitud auténtica
+            </span>
+            <h2 class="mt-6 max-w-xl text-4xl font-black leading-tight text-bone sm:text-5xl lg:text-6xl">
+              Naturaleza: <span class="text-sand">Libera tu estilo cotidiano</span>
+            </h2>
+            <p class="mt-5 max-w-xl text-base leading-7 text-bone/75 sm:text-lg">
+              Creamos y seleccionamos prendas diseñadas para acompañar tu ritmo diario. Calidad, comodidad y actitud en un solo lugar. Descubre la colección pensada para jóvenes y niños que no temen destacar.
+            </p>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a href="#catalog" class="inline-flex items-center justify-center rounded-full bg-sand px-6 py-3 text-sm font-semibold text-[#121212] shadow-glow transition hover:scale-[1.02] hover:bg-[#e7ca7a]">
+                Ver Catálogo
+              </a>
+              <a href="https://wa.me/5493518631873?text=Hola%20Naturaleza%2C%20quiero%20consultar%20por%20la%20colecci%C3%B3n%20de%20ropa%20informal." target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-bone transition hover:border-sand/50 hover:bg-white/10">
+                Consultar por WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -left-8 top-10 h-28 w-28 rounded-full bg-sand/15 blur-3xl"></div>
+            <div class="absolute -right-6 bottom-6 h-32 w-32 rounded-full bg-white/10 blur-3xl"></div>
+            <div class="relative overflow-hidden rounded-[28px] border border-white/10 bg-panel p-3 shadow-2xl shadow-black/30">
+              <div class="rounded-[22px] overflow-hidden border border-white/10">
+                <img
+                  src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80"
+                  alt="Ropa informal moderna"
+                  class="h-[520px] w-full object-cover"
+                />
+              </div>
+              <div class="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/10 bg-[#141417]/90 p-4 backdrop-blur-sm">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-sand">Colección</p>
+                    <h3 class="mt-1 text-lg font-semibold text-bone">Street Essentials</h3>
+                  </div>
+                  <span class="rounded-full border border-sand/30 bg-sand/10 px-2.5 py-1 text-xs font-medium text-sand">
+                    +1000 ventas
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="catalog" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-sand">Catálogo</p>
+            <h3 class="mt-2 text-3xl font-bold text-bone sm:text-4xl gold-line">Descubrí tu próxima prenda</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button class="filter-btn rounded-full border border-sand/40 bg-sand px-4 py-2 text-sm font-medium text-[#111111] transition" data-category="Todos">Todos</button>
+            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Jóvenes">Jóvenes</button>
+            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Niños">Niños</button>
+            <button class="filter-btn rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-bone/80 transition hover:border-sand/30 hover:text-bone" data-category="Accesorios/Otras Prendas">Accesorios/Otras Prendas</button>
+          </div>
+        </div>
+
+        <div id="productGrid" class="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4"></div>
+      </section>
+
+      <section id="about" class="bg-[#121214] py-16">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+          <div class="overflow-hidden rounded-[26px] border border-white/10 bg-panel">
+            <img
+              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
+              alt="Concepto de la marca Naturaleza"
+              class="h-full min-h-[320px] w-full object-cover"
+            />
+          </div>
+          <div class="flex flex-col justify-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-sand">Sobre nosotros</p>
+            <h3 class="mt-3 text-3xl font-bold text-bone sm:text-4xl">Un estilo que se siente como vos.</h3>
+            <p class="mt-5 text-base leading-8 text-bone/75">
+              En Naturaleza creemos que la ropa informal no es solo para vestir, es una forma de expresión diaria. Diseñamos y elegimos prendas duraderas y con estilo para que niños y jóvenes se sientan cómodos, seguros y auténticos en todo momento.
+            </p>
+            <div class="mt-8 grid gap-4 sm:grid-cols-3">
+              <div class="rounded-2xl border border-white/10 bg-[#1B1B1D] p-4">
+                <p class="text-3xl font-black text-sand">100%</p>
+                <p class="mt-2 text-sm text-bone/70">Prendas con comodidad premium</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-[#1B1B1D] p-4">
+                <p class="text-3xl font-black text-sand">24h</p>
+                <p class="mt-2 text-sm text-bone/70">Atención rápida por WhatsApp</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-[#1B1B1D] p-4">
+                <p class="text-3xl font-black text-sand">+1k</p>
+                <p class="mt-2 text-sm text-bone/70">Clientes que eligen Naturaleza</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-sand">Reseñas</p>
+          <h3 class="mt-3 text-3xl font-bold text-bone sm:text-4xl">Lo que dicen nuestros clientes</h3>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover">
+            <div class="mb-4 flex text-sand">★★★★★</div>
+            <p class="text-base leading-7 text-bone/75">
+              “La calidad de las telas es excelente y el estilo es justo lo que buscaba para mi hijo. La atención por WhatsApp fue súper rápida y cordial.”
+            </p>
+            <div class="mt-6 border-t border-white/10 pt-4">
+              <p class="font-semibold text-bone">Lucía M.</p>
+              <p class="text-sm text-bone/55">Cliente de niños</p>
+            </div>
+          </article>
+
+          <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover">
+            <div class="mb-4 flex text-sand">★★★★★</div>
+            <p class="text-base leading-7 text-bone/75">
+              “Compré varias prendas para mi grupo y me encantó la comodidad. Pedí por WhatsApp y todo salió perfecto, rápido y bien coordinado.”
+            </p>
+            <div class="mt-6 border-t border-white/10 pt-4">
+              <p class="font-semibold text-bone">Mateo R.</p>
+              <p class="text-sm text-bone/55">Cliente joven</p>
+            </div>
+          </article>
+
+          <article class="rounded-[24px] border border-white/10 bg-panel p-6 card-hover">
+            <div class="mb-4 flex text-sand">★★★★★</div>
+            <p class="text-base leading-7 text-bone/75">
+              “El local tiene un estilo muy auténtico y las prendas duran mucho. La coordinación para retiro en local fue fácil y muy amable.”
+            </p>
+            <div class="mt-6 border-t border-white/10 pt-4">
+              <p class="font-semibold text-bone">Sofía T.</p>
+              <p class="text-sm text-bone/55">Cliente de la tienda</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-[#101012] py-16">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
+          <div class="rounded-[26px] border border-white/10 bg-panel p-6 sm:p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-sand">Ubicación</p>
+            <h3 class="mt-3 text-3xl font-bold text-bone">Visitanos o consultanos online</h3>
+            <div class="mt-6 space-y-5 text-bone/75">
+              <div>
+                <p class="text-sm uppercase tracking-[0.2em] text-sand/80">Horarios</p>
+                <p class="mt-2 text-base">Lunes a Sábados de 17:00 a 21:00 hs.</p>
+              </div>
+              <div>
+                <p class="text-sm uppercase tracking-[0.2em] text-sand/80">Dirección</p>
+                <p class="mt-2 text-base">Av. Alfonsina Storni 717-701, X5019 Córdoba.</p>
+              </div>
+              <div>
+                <p class="text-sm uppercase tracking-[0.2em] text-sand/80">WhatsApp</p>
+                <p class="mt-2 text-base">+54 9 351 863-1873</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[26px] border border-white/10 bg-panel p-6 sm:p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-sand">Redes</p>
+            <h3 class="mt-3 text-3xl font-bold text-bone">Seguinos en la comunidad</h3>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <a href="https://instagram.com/naturaleza_ropa" target="_blank" rel="noreferrer" class="rounded-2xl border border-white/10 bg-[#1A1A1D] p-4 transition hover:border-sand/40 hover:bg-[#1f1f22]">
+                <p class="text-sm uppercase tracking-[0.2em] text-sand">Instagram</p>
+                <p class="mt-2 text-lg font-semibold text-bone">@naturaleza_ropa</p>
+              </a>
+              <a href="https://facebook.com/Naturaleza-ropa-inf" target="_blank" rel="noreferrer" class="rounded-2xl border border-white/10 bg-[#1A1A1D] p-4 transition hover:border-sand/40 hover:bg-[#1f1f22]">
+                <p class="text-sm uppercase tracking-[0.2em] text-sand">Facebook</p>
+                <p class="mt-2 text-lg font-semibold text-bone">Naturaleza ropa inf</p>
+              </a>
+            </div>
+            <div class="mt-8 rounded-2xl border border-sand/30 bg-sand/10 p-4">
+              <p class="text-sm uppercase tracking-[0.2em] text-sand">Tip de compra</p>
+              <p class="mt-2 text-base leading-7 text-bone/80">Consultá por WhatsApp para combinar looks, talles y disponibilidad antes de retirar o enviar.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-charcoal py-6">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-center text-sm text-bone/60 sm:flex-row sm:px-6 lg:px-8">
+        <p>© 2025 Naturaleza | Ropa Informal</p>
+        <p>Diseños para vivir con estilo cada día.</p>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/5493518631873?text=Hola%20Naturaleza%2C%20quiero%20hacer%20una%20consulta%20sobre%20la%20ropa%20informal."
+      target="_blank"
+      rel="noreferrer"
+      class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-2xl shadow-2xl shadow-green-500/25 transition hover:scale-105"
+      aria-label="Chatear por WhatsApp"
+    >
+      💬
+    </a>
+
+    <div id="cartModal" class="fixed inset-0 z-50 hidden bg-black/70 p-4 backdrop-blur-sm">
+      <div class="mx-auto flex h-full max-w-2xl items-center justify-center">
+        <div class="w-full rounded-[28px] border border-white/10 bg-[#17171A] shadow-2xl shadow-black/40">
+          <div class="flex items-center justify-between border-b border-white/10 px-5 py-4">
+            <h3 class="text-xl font-bold text-bone">Tu carrito</h3>
+            <button id="closeCart" class="text-2xl text-bone/70 transition hover:text-sand">×</button>
+          </div>
+
+          <div class="max-h-[55vh] overflow-y-auto px-5 py-4 scrollbar-thin">
+            <div id="cartItems" class="space-y-3"></div>
+          </div>
+
+          <div class="border-t border-white/10 px-5 py-5">
+            <div class="mb-4 flex items-center justify-between text-bone/80">
+              <span class="text-sm uppercase tracking-[0.14em]">Total</span>
+              <span id="totalPrice" class="text-2xl font-bold text-sand">$0</span>
+            </div>
+
+            <div class="space-y-3">
+              <label class="block">
+                <span class="mb-1.5 block text-sm text-bone/70">Nombre del cliente</span>
+                <input id="customerName" type="text" placeholder="Ej: María López" class="w-full rounded-xl border border-white/10 bg-[#1D1D20] px-3 py-3 text-bone outline-none transition focus:border-sand/50" />
+              </label>
+
+              <label class="block">
+                <span class="mb-1.5 block text-sm text-bone/70">Método de entrega</span>
+                <select id="shippingMethod" class="w-full rounded-xl border border-white/10 bg-[#1D1D20] px-3 py-3 text-bone outline-none transition focus:border-sand/50">
+                  <option value="Retiro en local (Av. Alfonsina Storni 717)">Retiro en local (Av. Alfonsina Storni 717)</option>
+                  <option value="Envío a domicilio">Envío a domicilio</option>
+                </select>
+              </label>
+            </div>
+
+            <button id="checkoutButton" class="mt-5 w-full rounded-full bg-sand px-5 py-3 text-sm font-bold text-[#121212] transition hover:bg-[#e3c777]">
+              Finalizar Pedido por WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const products = [
+        { id: 1, name: 'Canguro Oversize', category: 'Jóvenes', price: 18900, image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80', tag: 'Jóvenes' },
+        { id: 2, name: 'Remera Street', category: 'Jóvenes', price: 12900, image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80', tag: 'Jóvenes' },
+        { id: 3, name: 'Pantalón Cargo', category: 'Jóvenes', price: 21900, image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80', tag: 'Jóvenes' },
+        { id: 4, name: 'Buzo Everyday', category: 'Niños', price: 15900, image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80', tag: 'Niños' },
+        { id: 5, name: 'Conjunto Mini', category: 'Niños', price: 17900, image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80', tag: 'Niños' },
+        { id: 6, name: 'Mochila Casual', category: 'Accesorios/Otras Prendas', price: 10900, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80', tag: 'Accesorios' },
+        { id: 7, name: 'Gorra Urban', category: 'Accesorios/Otras Prendas', price: 6900, image: 'https://images.unsplash.com/photo-1521369909026-2afed882baee?auto=format&fit=crop&w=900&q=80', tag: 'Accesorios' },
+        { id: 8, name: 'Short Verano', category: 'Niños', price: 9900, image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80', tag: 'Niños' },
+      ];
+
+      const state = {
+        activeCategory: 'Todos',
+        cart: [],
+      };
+
+      const productGrid = document.getElementById('productGrid');
+      const cartItems = document.getElementById('cartItems');
+      const cartModal = document.getElementById('cartModal');
+      const cartCount = document.getElementById('cartCount');
+      const totalPrice = document.getElementById('totalPrice');
+
+      function formatPrice(value) {
+        return new Intl.NumberFormat('es-AR', {
+          style: 'currency',
+          currency: 'ARS',
+          maximumFractionDigits: 0,
+        }).format(value);
+      }
+
+      function renderProducts() {
+        const filtered =
+          state.activeCategory === 'Todos'
+            ? products
+            : products.filter((product) => product.category === state.activeCategory);
+
+        productGrid.innerHTML = filtered
+          .map(
+            (product) => `
+              <article class="group overflow-hidden rounded-[24px] border border-white/10 bg-panel card-hover">
+                <div class="relative overflow-hidden">
+                  <img src="${product.image}" alt="${product.name}" class="product-image w-full transition duration-500 group-hover:scale-105" />
+                  <span class="absolute left-3 top-3 rounded-full border border-sand/40 bg-[#1a1a1d]/85 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-sand">
+                    ${product.tag}
+                  </span>
+                </div>
+                <div class="p-5">
+                  <h4 class="text-lg font-semibold text-bone">${product.name}</h4>
+                  <div class="mt-3 flex items-center justify-between">
+                    <span class="text-xl font-bold text-sand">${formatPrice(product.price)}</span>
+                    <button data-add="${product.id}" class="add-to-cart rounded-full bg-sand px-4 py-2 text-sm font-semibold text-[#111111] transition hover:bg-[#e7ca7a]">
+                      + Agregar al Carrito
+                    </button>
+                  </div>
+                </div>
+              </article>
+            `
+          )
+          .join('');
+
+        document.querySelectorAll('.add-to-cart').forEach((button) => {
+          button.addEventListener('click', () => {
+            addToCart(Number(button.dataset.add));
+          });
+        });
+      }
+
+      function addToCart(productId) {
+        const product = products.find((item) => item.id === productId);
+        if (!product) return;
+
+        const existing = state.cart.find((item) => item.id === productId);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          state.cart.push({ id: productId, quantity: 1 });
+        }
+
+        renderCart();
+        openCart();
+      }
+
+      function renderCart() {
+        if (!state.cart.length) {
+          cartItems.innerHTML = `
+            <div class="rounded-2xl border border-dashed border-white/15 bg-[#1D1D20] p-6 text-center">
+              <p class="text-base text-bone/70">Tu carrito está vacío.</p>
+            </div>
+          `;
+          cartCount.textContent = '0';
+          totalPrice.textContent = '$0';
+          return;
+        }
+
+        const cartProducts = state.cart.map((item) => {
+          const product = products.find((p) => p.id === item.id);
+          return { ...product, quantity: item.quantity };
+        });
+
+        const total = cartProducts.reduce((acc, item) => acc + item.price * item.quantity, 0);
+        cartCount.textContent = String(cartProducts.reduce((acc, item) => acc + item.quantity, 0));
+        totalPrice.textContent = formatPrice(total);
+
+        cartItems.innerHTML = cartProducts
+          .map(
+            (item) => `
+              <div class="cart-item-enter flex items-center gap-3 rounded-2xl border border-white/10 bg-[#1D1D20] p-3">
+                <img src="${item.image}" alt="${item.name}" class="h-20 w-20 rounded-xl object-cover" />
+                <div class="min-w-0 flex-1">
+                  <p class="truncate text-sm font-semibold text-bone">${item.name}</p>
+                  <p class="mt-1 text-sm text-sand">${formatPrice(item.price)}</p>
+                </div>
+                <div class="flex items-center gap-2 rounded-full border border-white/10 bg-[#121214] px-2 py-1">
+                  <button data-action="decrement" data-id="${item.id}" class="qty-btn text-lg text-bone/70 transition hover:text-sand">−</button>
+                  <span class="min-w-[22px] text-center text-sm font-semibold text-bone">${item.quantity}</span>
+                  <button data-action="increment" data-id="${item.id}" class="qty-btn text-lg text-bone/70 transition hover:text-sand">+</button>
+                </div>
+                <button data-action="remove" data-id="${item.id}" class="ml-1 text-sm text-bone/50 transition hover:text-red-300">Eliminar</button>
+              </div>
+            `
+          )
+          .join('');
+
+        document.querySelectorAll('.qty-btn').forEach((button) => {
+          button.addEventListener('click', () => {
+            updateQuantity(Number(button.dataset.id), button.dataset.action === 'increment' ? 1 : -1);
+          });
+        });
+
+        document.querySelectorAll('[data-action="remove"]').forEach((button) => {
+          button.addEventListener('click', () => {
+            removeFromCart(Number(button.dataset.id));
+          });
+        });
+      }
+
+      function updateQuantity(productId, delta) {
+        const item = state.cart.find((product) => product.id === productId);
+        if (!item) return;
+
+        item.quantity += delta;
+        if (item.quantity <= 0) {
+          state.cart = state.cart.filter((product) => product.id !== productId);
+        }
+
+        renderCart();
+      }
+
+      function removeFromCart(productId) {
+        state.cart = state.cart.filter((product) => product.id !== productId);
+        renderCart();
+      }
+
+      function openCart() {
+        cartModal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closeCart() {
+        cartModal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      document.querySelectorAll('.filter-btn').forEach((button) => {
+        button.addEventListener('click', () => {
+          state.activeCategory = button.dataset.category;
+          document.querySelectorAll('.filter-btn').forEach((btn) => {
+            btn.classList.remove('bg-sand', 'text-[#111111]');
+            btn.classList.add('bg-white/5', 'text-bone/80', 'border-white/10');
+          });
+
+          button.classList.remove('bg-white/5', 'text-bone/80', 'border-white/10');
+          button.classList.add('bg-sand', 'text-[#111111]', 'border-sand/40');
+
+          renderProducts();
+        });
+      });
+
+      document.getElementById('cartButton').addEventListener('click', openCart);
+      document.getElementById('closeCart').addEventListener('click', closeCart);
+      cartModal.addEventListener('click', (event) => {
+        if (event.target === cartModal) closeCart();
+      });
+
+      document.getElementById('checkoutButton').addEventListener('click', () => {
+        if (!state.cart.length) {
+          alert('Tu carrito está vacío. Agrega productos antes de finalizar.');
+          return;
+        }
+
+        const customerName = document.getElementById('customerName').value.trim();
+        const shippingMethod = document.getElementById('shippingMethod').value;
+
+        if (!customerName) {
+          alert('Ingresá el nombre del cliente para continuar.');
+          return;
+        }
+
+        const cartProducts = state.cart.map((item) => {
+          const product = products.find((p) => p.id === item.id);
+          return `- ${product.name} x${item.quantity} (${formatPrice(product.price * item.quantity)})`;
+        });
+
+        const total = state.cart.reduce((acc, item) => {
+          const product = products.find((p) => p.id === item.id);
+          return acc + product.price * item.quantity;
+        }, 0);
+
+        const message = `Hola Naturaleza, quiero confirmar mi pedido.%0A%0A` +
+          `Cliente: ${customerName}%0A` +
+          `Método de entrega: ${shippingMethod}%0A%0A` +
+          `Productos:%0A${cartProducts.join('%0A')}%0A%0A` +
+          `Total: ${formatPrice(total)}%0A%0A` +
+          `¿Tienen disponibilidad para coordinar este pedido?`;
+
+        const waLink = `https://wa.me/5493518631873?text=${message}`;
+        window.open(waLink, '_blank');
+      });
+
+      renderProducts();
+      renderCart();
+    </script>
+  </body>
+</html>
